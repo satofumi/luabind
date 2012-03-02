@@ -45,14 +45,14 @@ void wrap_regex(lua_State* L)
 int main()
 {
 	lua_State* L = lua_open();
-	lua_baselibopen(L);
-	lua_strlibopen(L);
+	luaopen_base(L);
+	luaopen_string(L);
 	luabind::open(L);
-	
+
 	wrap_regex(L);
-	
-	lua_dofile(L, "regex.lua");
-	
+
+	luaL_dofile(L, "regex.lua");
+
 	lua_close(L);
 }
 

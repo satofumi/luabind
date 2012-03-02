@@ -168,13 +168,13 @@ void bind_glut(lua_State* L)
 int main(int argc, char* argv[])
 {
 	lua_State* L = lua_open();
-	lua_baselibopen(L);
-	lua_mathlibopen(L);
+	luaopen_base(L);
+	luaopen_math(L);
 	bind_glut(L);
 
 	glutInit (&argc, argv);
 
-	lua_dofile(L, "glut_bindings.lua");
+	luaL_dofile(L, "glut_bindings.lua");
 
 	lua_close(L);
 	return 0;

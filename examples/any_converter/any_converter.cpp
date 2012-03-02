@@ -1,3 +1,4 @@
+#include <cstring>
 #include <iostream>
 
 extern "C"
@@ -44,8 +45,8 @@ namespace luabind
 {
 	namespace converters
 	{
-		yes_t is_user_defined(by_value<boost::any>);
-		yes_t is_user_defined(by_const_reference<boost::any>);
+                // yes_t is_user_defined(by_value<boost::any>);
+                // yes_t is_user_defined(by_const_reference<boost::any>);
 
 		void convert_cpp_to_lua(lua_State* L, const boost::any& a)
 		{

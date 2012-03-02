@@ -1,1 +1,1 @@
-SUBDIRS = src luabind test
+SUBDIRS = src luabind examples test

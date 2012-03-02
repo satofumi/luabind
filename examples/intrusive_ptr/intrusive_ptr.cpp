@@ -1,3 +1,4 @@
+#include <cstring>
 #include <iostream>
 
 extern "C"
@@ -27,11 +28,11 @@ namespace luabind
 	namespace converters
 	{
 		// tell luabind that there is a converter for boost::intrusive_ptr<T>
-		template<class T>
-		yes_t is_user_defined(by_value<boost::intrusive_ptr<T> >);
+		// template<class T>
+		// yes_t is_user_defined(by_value<boost::intrusive_ptr<T> >);
 
-		template<class T>
-		yes_t is_user_defined(by_const_reference<boost::intrusive_ptr<T> >);
+		// template<class T>
+		// yes_t is_user_defined(by_const_reference<boost::intrusive_ptr<T> >);
 
 		// function used to destruct the object in lua
 		template<class T>

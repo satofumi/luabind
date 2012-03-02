@@ -31,6 +31,13 @@ AC_HEADER_STDC
 AC_FUNC_MALLOC
 
 AC_CONFIG_FILES([Makefile
+                 examples/Makefile
+                 examples/any_converter/Makefile
+                 examples/filesystem/Makefile
+                 examples/glut/Makefile
+                 examples/hello_world/Makefile
+                 examples/intrusive_ptr/Makefile
+                 examples/regexp/Makefile
                  luabind/Makefile
                  src/Makefile
                  test/Makefile])

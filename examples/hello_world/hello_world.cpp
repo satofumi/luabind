@@ -48,4 +48,3 @@ extern "C" int init(lua_State* L)
 
     return 0;
 }
-

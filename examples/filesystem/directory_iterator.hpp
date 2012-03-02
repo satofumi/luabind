@@ -26,10 +26,10 @@
 
 #include <luabind/config.hpp>
 #include <luabind/detail/policy.hpp>
-#include <luabind/detail/implicit_cast.hpp>
+//#include <luabind/detail/implicit_cast.hpp>
 #include <luabind/detail/convert_to_lua.hpp>
 
-namespace luabind { namespace detail 
+namespace luabind { namespace detail
 {
 	template<class Iter>
 	struct dir_iterator_state

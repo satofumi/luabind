@@ -2,6 +2,7 @@ bin.v2
 bin
 doc/*.html
 doc/version.rst
+*~
 .deps
 .libs
 *.la
@@ -24,3 +25,6 @@ autom4te.cache
 aclocal.m4
 Makefile
 Makefile.in
+examples/any_converter/any_converter
+examples/glut/glut_bind
+examples/regexp/regexp
