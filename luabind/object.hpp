@@ -49,10 +49,10 @@
 
 namespace luabind {
 
-namespace detail 
+namespace detail
 {
   namespace mpl = boost::mpl;
-  
+
   template<class T, class ConverterGenerator>
   void push_aux(lua_State* interpreter, T& value, ConverterGenerator*)
   {
@@ -96,21 +96,21 @@ namespace detail
 namespace adl
 {
   namespace mpl = boost::mpl;
-  
+
   template <class T>
   class object_interface;
-  
+
   namespace is_object_interface_aux
   {
     typedef char (&yes)[1];
     typedef char (&no)[2];
-    
+
     template <class T>
     yes check(object_interface<T>*);
     no check(void*);
 
     template <class T>
-    struct impl 
+    struct impl
     {
         BOOST_STATIC_CONSTANT(bool, value =
             sizeof(is_object_interface_aux::check((T*)0)) == sizeof(yes)
@@ -161,7 +161,7 @@ namespace adl
        if (L == 0) return 1;
        return 0;
   }
-	
+
   template<class T, class U>
   int binary_interpreter(lua_State*& L, T const& x, U const&
     , boost::mpl::true_, boost::mpl::false_)
@@ -249,14 +249,14 @@ LUABIND_BINARY_OP_DEF(<, lua_lessthan)
   }
 
   template<class LHS, class RHS>
-  typename enable_binary<bool,LHS,RHS>::type 
+  typename enable_binary<bool,LHS,RHS>::type
   operator>=(LHS const& lhs, RHS const& rhs)
   {
       return !(lhs < rhs);
   }
 
   template<class LHS, class RHS>
-  typename enable_binary<bool,LHS,RHS>::type 
+  typename enable_binary<bool,LHS,RHS>::type
   operator!=(LHS const& lhs, RHS const& rhs)
   {
       return !(lhs == rhs);
@@ -269,7 +269,7 @@ LUABIND_BINARY_OP_DEF(<, lua_lessthan)
   class index_proxy;
 
   class object;
-  
+
   template<class Derived>
   class object_interface
   {
@@ -355,7 +355,7 @@ LUABIND_BINARY_OP_DEF(<, lua_lessthan)
 #ifdef LUABIND_USE_VALUE_WRAPPER_TAG
   struct iterator_proxy_tag;
 #endif
-  
+
   template<class AccessPolicy>
   class iterator_proxy
     : public object_interface<iterator_proxy<AccessPolicy> >
@@ -467,7 +467,7 @@ namespace detail
   };
 
   template<class AccessPolicy>
-  class basic_iterator 
+  class basic_iterator
     : public boost::iterator_facade<
         basic_iterator<AccessPolicy>
       , adl::iterator_proxy<AccessPolicy>
@@ -574,14 +574,14 @@ namespace detail
   LUABIND_OPERATOR_ADL_WKND(!=)
 
 #undef LUABIND_OPERATOR_ADL_WKND
- 
+
 } // namespace detail
 
 namespace adl
 {
- 
+
 #ifdef LUABIND_USE_VALUE_WRAPPER_TAG
-  struct index_proxy_tag;    
+  struct index_proxy_tag;
 #endif
 
   template<class Next>
@@ -632,7 +632,7 @@ namespace adl
           lua_settable(m_interpreter, -3);
           return *this;
 		}
-		
+
       template<class T>
       this_type& operator=(T const& value)
       {
@@ -671,7 +671,7 @@ namespace adl
 
   private:
 		struct hidden_type {};
-		
+
 //      this_type& operator=(index_proxy<Next> const&);
 
       mutable lua_State* m_interpreter;
